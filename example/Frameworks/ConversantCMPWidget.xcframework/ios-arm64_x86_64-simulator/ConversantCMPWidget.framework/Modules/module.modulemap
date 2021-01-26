@@ -1,0 +1,4 @@
+framework module ConversantCMPWidget {
+  header "ConversantCMPWidget-Swift.h"
+  requires objc
+}

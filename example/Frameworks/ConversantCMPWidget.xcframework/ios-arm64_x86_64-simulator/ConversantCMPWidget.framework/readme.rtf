@@ -1,0 +1,332 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 Menlo-Bold;
+\f3\fnil\fcharset0 Menlo-Regular;\f4\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;\red252\green95\blue163;\red31\green31\blue36;\red255\green255\blue255;
+\red211\green24\blue149;\red0\green0\blue0;\red255\green255\blue255;\red93\green216\blue255;\red0\green160\blue255;
+\red65\green161\blue192;\red35\green255\blue131;\red65\green204\blue69;\red255\green44\blue56;\red228\green124\blue72;
+\red120\green109\blue255;\red0\green0\blue0;\red255\green255\blue255;\red15\green114\blue1;}
+{\*\expandedcolortbl;;\csgenericrgb\c98839\c37355\c63833;\csgenericrgb\c12054\c12284\c14131;\csgenericrgb\c100000\c100000\c100000\c85000;
+\csgenericrgb\c82800\c9500\c58300;\csgenericrgb\c0\c0\c0;\csgenericrgb\c100000\c100000\c100000;\csgenericrgb\c36295\c84643\c99897;\csgenericrgb\c0\c62600\c100000;
+\csgenericrgb\c25490\c63137\c75294;\csgenericrgb\c13700\c100000\c51200;\csgenericrgb\c25500\c80100\c27000;\csgenericrgb\c100000\c17100\c21900;\csgenericrgb\c89600\c48800\c28400;
+\csgenericrgb\c46900\c42600\c100000;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c50980\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\margl1440\margr1440\vieww35640\viewh19200\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 Conversant CMP Readme\
+
+\f1\b0 \
+Introduction\
+\
+The Conversant CMP Widget allows publishers to do two essential functions:\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	1.	}Determine whether they need to get consent from a user depending on their location\
+{\listtext	2.	}Get consent once they have determined they require it. Consent is gathered using a widget which allows a user to accept data gathering on a company and purpose basis.  Users can also blanket accept or deny such consent.\
+\pard\tx560\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Installation\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls2\ilvl0\cf0 {\listtext	1.	}Drag the ConversantCMPWidget.xcframework to your project icon in xcode. In the pop up window, ensure that "Copy Items" is ticked.\
+{\listtext	2.	}In the frameworks section of your project, ensure "Embed and sign" is selected (Default is "Do Not Embed")\
+\pard\tx560\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+Using the framework.\
+\
+Generally speaking you should gather consent as soon as you first launch your app.  However, you can do it at any point you prefer.  It is essential that you initialize the app as soon as possible (in your app delegate for example).  Remember, any third party frameworks, such as advertising or analytics will NOT BE ABLE TO OPERATE until you have gathered consent, so it is essential that you determine your consent requirements and gather consent before you initialize your other frameworks.  However, most high quality frameworks should be checking for consent and should also be watching the consent values for changes, so it may be alright to initialize those frameworks and then gather consent. Read documentation for each framework and act accordingly.\
+\
+1. Import the framework where you would like to initialize the app.\
+\
+\pard\tx560\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf0 Swift\
+\pard\tx560\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 \
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f2\b\fs26 \cf2 \cb3 import
+\f3\b0 \cf4  ConversantCMPWidget\
+
+\f1\fs24 \cf0 \cb1 \
+
+\f0\b Objective-C\
+
+\f1\b0 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf5 \cb6 @import\cf7  ConversantCMPWidget;\
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \
+2. Create JSON configuration either manually or load from an URL and initialize the ConversantCMP widget with the same within AppDelegate. If you are unsure of initialization parameters for these objects, check the documentation for each function (option click on the function).\
+\
+
+\f0\b Swift\
+
+\f1\b0 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf5 \cb6 import\cf7  UIKit\
+\cf5 import\cf7  ConversantCMPWidget\
+\
+\cf5 @UIApplicationMain\cf7 \
+\cf5 class\cf7  \cf8 AppDelegate\cf7 : \cf9 UIResponder\cf7 , \cf9 UIApplicationDelegate\cf7  \{\
+    \cf5 var\cf7  \cf10 window\cf7 : \cf9 UIWindow\cf7 ?\
+    \cf5 var\cf7  \cf10 cmpwidget\cf7 : \cf11 ConversantCMP\cf7 ?\
+    \cf5 var\cf7  \cf10 configuration\cf7 : \cf9 String\cf7 ?\
+\
+    \cf5 func\cf7  \cf10 application\cf7 (\cf5 _\cf7  application: \cf9 UIApplication\cf7 , didFinishLaunchingWithOptions launchOptions: [\cf9 UIApplication\cf7 .\cf9 LaunchOptionsKey\cf7 : \cf5 Any\cf7 ]?) -> \cf9 Bool\cf7  \{\
+        \cf12 // Override point for customization after application launch.\cf7 \
+        \cf11 loadConfig\cf7 (\cf5 true\cf7 )\
+        \cf5 return\cf7  \cf5 true\cf7 \
+    \}\
+\
+    \cf5 func\cf7  \cf10 loadConfig\cf7 (\cf5 _\cf7  manual: \cf9 Bool\cf7 ) \{\
+        \cf5 if\cf7  manual \{\
+            \cf5 let\cf7  dict: [\cf9 String\cf7 : \cf5 Any\cf7 ] = [\cf13 "countryCode"\cf7 : \cf13 "US"\cf7 , \cf13 "gdprAppliesGlobally"\cf7 : \cf5 true\cf7 , \cf13 "policyUrl"\cf7 : \cf13 "https://www.adtech123.com/privacy/"\cf7 , \cf13 "version"\cf7 : \cf13 "1"\cf7 , \cf13 "id"\cf7 : \cf13 "com.conversant.cmp-test-app-swift"\cf7 ]\
+            \cf5 if\cf7  \cf5 let\cf7  data = \cf5 try\cf7 ? \cf9 JSONSerialization\cf7 .\cf9 data\cf7 (withJSONObject: dict, options: .\cf9 prettyPrinted\cf7 ) \{\
+                \cf11 cmpwidget\cf7  = \cf11 ConversantCMP\cf7 (configuration: data)\
+                \cf11 configuration\cf7  = \cf9 String\cf7 (decoding: data, as: \cf9 UTF8\cf7 .\cf5 self\cf7 ).\cf9 replacingOccurrences\cf7 (of: \cf13 "\\\\/"\cf7 , with: \cf13 "/"\cf7 )\
+            \}\
+        \} \cf5 else\cf7  \{\
+            \cf5 if\cf7  \cf5 let\cf7  url = \cf9 URL\cf7 (string: \cf13 "https://www.mojotest.com/~yliberman/CTM/Test/YelenaFolder/GDPR/qa/inappSampleConfig.js"\cf7 ) \{\
+                \cf9 URLSession\cf7 .\cf9 shared\cf7 .\cf9 dataTask\cf7 (with: url) \{[\cf5 weak\cf7  \cf5 self\cf7 ] data, response, error \cf5 in\cf7 \
+                    \cf5 if\cf7  \cf5 let\cf7  error = error \{\
+                        \cf9 print\cf7 (error.\cf9 localizedDescription\cf7 )\
+                    \}\
+\
+                    \cf5 if\cf7  \cf5 let\cf7  data = data \{\
+                        \cf9 print\cf7 (\cf13 "Config loaded from \cf7 \\(url.\cf9 absoluteString\cf7 )\cf13 "\cf7 )\
+                        \cf5 self\cf7 ?.\cf11 cmpwidget\cf7  = \cf11 ConversantCMP\cf7 (configuration: data)\
+                        \cf5 self\cf7 ?.\cf11 configuration\cf7  = \cf9 String\cf7 (decoding: data, as: \cf9 UTF8\cf7 .\cf5 self\cf7 ).\cf9 replacingOccurrences\cf7 (of: \cf13 "\\\\/"\cf7 , with: \cf13 "/"\cf7 )\
+                    \}\
+                \}.\cf9 resume\cf7 ()\
+            \}\
+        \}\
+    \}\
+\}
+\fs24 \cf4 \cb3 \
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f1 \cf0 \cb1 \
+
+\f0\b Objective-C\
+
+\f1\b0 \
+AppDelegate.h\
+\
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf14 \cb6 #import \cf13 <UIKit/UIKit.h>\cf7 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+\cf5 @import\cf7  ConversantCMPWidget;\
+\
+\cf5 @interface\cf7  \cf8 AppDelegate\cf7  : \cf9 UIResponder\cf7  <\cf9 UIApplicationDelegate\cf7 >\
+\
+\cf5 @property\cf7 (\cf5 strong\cf7 , \cf5 nonatomic\cf7 ) \cf11 ConversantCMP\cf7  *\cf10 cmpwidget\cf7 ;\
+\cf5 @property\cf7  (\cf5 strong\cf7 , \cf5 nonatomic\cf7 ) \cf9 UIWindow\cf7  *\cf10 window\cf7 ;\
+\cf5 @property\cf7  (\cf5 strong\cf7 , \cf5 nonatomic\cf7 ) \cf9 NSString\cf7  *\cf10 configuration\cf7 ;\
+\
+- (\cf5 void\cf7 )\cf10 loadConfig\cf7 :(\cf5 BOOL\cf7 )manual;\
+\
+\cf5 @end\cf7 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \
+AppDelegate.m\
+\
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf14 \cb6 #import \cf13 "AppDelegate.h"\cf7 \
+\
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+\cf5 @interface\cf7  \cf11 AppDelegate\cf7  ()\
+\
+\cf5 @end\cf7 \
+\
+\cf5 @implementation\cf7  \cf8 AppDelegate\cf7 \
+\
+\
+- (\cf5 BOOL\cf7 )\cf10 application\cf7 :(\cf9 UIApplication\cf7  *)application \cf10 didFinishLaunchingWithOptions\cf7 :(\cf9 NSDictionary\cf7  *)launchOptions \{\
+    \cf12 // Override point for customization after application launch.\cf7 \
+    [\cf5 self\cf7  \cf11 loadConfig\cf7 : \cf5 true\cf7 ];\
+    \cf5 return\cf7  \cf5 YES\cf7 ;\
+\}\
+\
+- (\cf5 void\cf7 )\cf10 loadConfig\cf7 :(\cf5 BOOL\cf7 )manual \{\
+    \cf5 if\cf7  (manual) \{\
+        \cf9 NSDictionary\cf7  *dict = \cf15 @\{\cf13 @"countryCode"\cf7 : \cf13 @"US"\cf7 , \cf13 @"gdprAppliesGlobally"\cf7 : \cf15 @YES\cf7 , \cf13 @"policyUrl"\cf7 : \cf13 @"https://www.adtech123.com/privacy/"\cf7 , \cf13 @"version"\cf7 : \cf13 @"1"\cf7 , \cf13 @"id"\cf7 : \cf13 @"com.conversant.cmp-test-app-ios-objective-c"\cf15 \}\cf7 ;\
+        \
+        \cf9 NSError\cf7  *error;\
+        \cf9 NSData\cf7  *data = [\cf9 NSJSONSerialization\cf7  \cf9 dataWithJSONObject\cf7 :dict\
+                                                       \cf9 options\cf7 :\cf9 NSJSONWritingPrettyPrinted\cf7 \
+                                                         \cf9 error\cf7 :&error];\
+        \
+        \cf5 self\cf7 .\cf11 cmpwidget\cf7  = [[\cf11 ConversantCMP\cf7  \cf9 alloc\cf7 ] \cf11 initWithConfiguration\cf7 : data];\
+        \cf5 self\cf7 .\cf11 configuration\cf7  = [[[\cf9 NSString\cf7  \cf9 alloc\cf7 ] \cf9 initWithData\cf7 : data \cf9 encoding\cf7 : \cf9 NSUTF8StringEncoding\cf7 ] \cf9 stringByReplacingOccurrencesOfString\cf7 : \cf13 @"\\\\/"\cf7  \cf9 withString\cf7 : \cf13 @"/"\cf7 ];\
+        \
+    \} \cf5 else\cf7  \{\
+        \cf9 NSURL\cf7  *url = [\cf9 NSURL\cf7  \cf9 URLWithString\cf7 : \cf13 @"https://www.mojotest.com/~yliberman/CTM/Test/YelenaFolder/GDPR/qa/inappSampleConfig.js"\cf7 ];\
+        \cf9 NSURLSession\cf7  *session = [\cf9 NSURLSession\cf7  \cf9 sharedSession\cf7 ];\
+        \cf9 NSURLSessionDataTask\cf7  *dataTask = [session \cf9 dataTaskWithURL\cf7 : url \cf9 completionHandler\cf7 :^(\cf9 NSData\cf7  * \cf5 _Nullable\cf7  data, \cf9 NSURLResponse\cf7  * \cf5 _Nullable\cf7  response, \cf9 NSError\cf7  * \cf5 _Nullable\cf7  error) \{\
+            \cf5 if\cf7  (error) \{\
+                \cf9 NSLog\cf7 (\cf13 @"%@"\cf7 , error.\cf9 localizedDescription\cf7 );\
+            \} \cf5 else\cf7  \{\
+                \cf9 NSLog\cf7 (\cf13 @"Config loaded from %@"\cf7 , url.\cf9 absoluteString\cf7 );\
+                \cf5 self\cf7 .\cf11 cmpwidget\cf7  = [[\cf11 ConversantCMP\cf7  \cf9 alloc\cf7 ] \cf11 initWithConfiguration\cf7 : data];\
+                \cf5 self\cf7 .\cf11 configuration\cf7  = [[[\cf9 NSString\cf7  \cf9 alloc\cf7 ] \cf9 initWithData\cf7 : data \cf9 encoding\cf7 : \cf9 NSUTF8StringEncoding\cf7 ] \cf9 stringByReplacingOccurrencesOfString\cf7 : \cf13 @"\\\\/"\cf7  \cf9 withString\cf7 : \cf13 @"/"\cf7 ];\
+            \}\
+        \}];\
+        \
+        [dataTask \cf9 resume\cf7 ];\
+    \}\
+\}\
+\
+\cf5 @end\cf7 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \
+3. Please note, the gdprAppliesGlobally will be required to be set to true for testing the CMP widget in case the publisher is not located within a region where GDPR regulations apply. \
+\
+\pard\pardeftab720\partightenfactor0
+\cf16 \cb17 \expnd0\expndtw0\kerning0
+This configuration parameter is used to signify that the CMP should show for every user regardless of GEO location/IP Address. This would also be the case if the publisher is located within the jurisdiction of the EU and would like to apply the\cb1  \cb17 GDPR regulations to all of its users.
+\f4\fs28 \cf18 \
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+4. To present the CMP widget popup use the following\
+\
+
+\f0\b Swift\
+
+\f1\b0 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf7 \cb6     \cf5 @IBAction\cf7  \cf5 func\cf7  \cf10 showPopup\cf7 (\cf5 _\cf7  sender: \cf5 Any\cf7 ) \{\
+        \cf5 let\cf7  appDelegate = \cf9 UIApplication\cf7 .\cf9 shared\cf7 .\cf9 delegate\cf7  \cf5 as\cf7 ! \cf11 AppDelegate\cf7 \
+        \cf5 let\cf7  cmpWidget = appDelegate.\cf11 cmpwidget\cf7 \
+        cmpWidget?.\cf11 presentCMPWidget\cf7 (from: \cf5 self\cf7 , onComplete: \{[\cf5 weak\cf7  \cf5 self\cf7 ] \cf5 in\cf7 \
+\
+        \})\
+    \}
+\fs24 \cf4 \cb3 \
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f1 \cf0 \cb1 \
+
+\f0\b Objective-C\
+
+\f1\b0 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf7 \cb6 - (\cf5 IBAction\cf7 )\cf10 showPopup\cf7 :(\cf5 id\cf7 )sender \{\
+    \cf11 AppDelegate\cf7  *appDelegate = (\cf11 AppDelegate\cf7  *)[[\cf9 UIApplication\cf7  \cf9 sharedApplication\cf7 ] \cf9 delegate\cf7 ];\
+    \cf11 ConversantCMP\cf7  *cmpwidget = [appDelegate \cf11 cmpwidget\cf7 ];\
+    [cmpwidget \cf11 presentCMPWidgetFrom\cf7 :\cf5 self\cf7  \cf11 onComplete\cf7 :^\{\
+\
+    \}];\
+\}\
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+\cf0 5. To allow the user to modify consent use the following\
+\
+
+\f0\b Swift\
+
+\f1\b0 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf7 \cb6     \cf5 @IBAction\cf7  \cf5 func\cf7  \cf10 modify\cf7 (\cf5 _\cf7  sender: \cf5 Any\cf7 ) \{\
+        \cf5 let\cf7  appDelegate = \cf9 UIApplication\cf7 .\cf9 shared\cf7 .\cf9 delegate\cf7  \cf5 as\cf7 ! \cf11 AppDelegate\cf7 \
+        \cf5 let\cf7  cmpWidget = appDelegate.\cf11 cmpwidget\cf7 \
+        cmpWidget?.\cf11 modifyConsent\cf7 (from: \cf5 self\cf7 , onComplete: \{[\cf5 weak\cf7  \cf5 self\cf7 ] \cf5 in\cf7 \
+\
+        \})\
+    \}
+\fs24 \cf4 \cb3 \
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f1 \cf0 \cb1 \
+
+\f0\b Objective-C\
+
+\f1\b0 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf7 \cb6 - (\cf5 IBAction\cf7 )\cf10 modify\cf7 :(\cf5 id\cf7 )sender \{\
+    \cf11 AppDelegate\cf7  *appDelegate = (\cf11 AppDelegate\cf7  *)[[\cf9 UIApplication\cf7  \cf9 sharedApplication\cf7 ] \cf9 delegate\cf7 ];\
+    \cf11 ConversantCMP\cf7  *cmpwidget = [appDelegate \cf11 cmpwidget\cf7 ];\
+    [cmpwidget \cf11 modifyConsentFrom\cf7 :\cf5 self\cf7  \cf11 onComplete\cf7 :^\{\
+\
+    \}];\
+\}\
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \
+5. To check if GDPR consent is required use the following. Result will be an optional NSNumber, 1 if required else 0, will return nil or NULL in case of timeout depending upon the language used.\
+\
+
+\f0\b Swift\
+
+\f1\b0 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf7 \cb6         \cf5 let\cf7  appDelegate = \cf9 UIApplication\cf7 .\cf9 shared\cf7 .\cf9 delegate\cf7  \cf5 as\cf7 ! \cf11 AppDelegate\cf7 \
+        \cf5 let\cf7  cmpWidget = appDelegate.\cf11 cmpwidget\cf7 \
+        cmpWidget?.\cf11 checkGDPRIsRequired\cf7 (containerView: \cf5 self\cf7 .\cf9 view\cf7 , completion: \{ (result) \cf5 in\cf7 \
+\
+        \})
+\fs24 \cf4 \cb3 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f1 \cf0 \cb1 \
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f0\b \cf0 Objective-C\
+
+\f1\b0 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf7 \cb6     \cf11 AppDelegate\cf7  *appDelegate = (\cf11 AppDelegate\cf7  *)[[\cf9 UIApplication\cf7  \cf9 sharedApplication\cf7 ] \cf9 delegate\cf7 ];\
+    \cf11 ConversantCMP\cf7  *cmpwidget = [appDelegate \cf11 cmpwidget\cf7 ];\
+    [cmpwidget \cf11 checkGDPRIsRequiredWithContainerView\cf7 :\cf5 self\cf7 .\cf9 view\cf7  \cf11 completion\cf7 :^(\cf9 NSNumber\cf7  * \cf5 _Nullable\cf7  result) \{\
+\
+    \}];\
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \
+Please note that the GDPR check is already called internally for both present and modify consent APIs so not required to be called additionally for those two functions.\
+\
+6. To delete the stored consents, just delete the required keys from the user defaults as per requirement. Here we are deleting three keys as an example\
+\
+
+\f0\b Swift\
+
+\f1\b0 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf7 \cb6      \cf9 UserDefaults\cf7 .\cf9 standard\cf7 .\cf9 set\cf7 (\cf13 ""\cf7 , forKey: \cf13 "IABTCF_TCString"\cf7 )\
+     \cf9 UserDefaults\cf7 .\cf9 standard\cf7 .\cf9 set\cf7 (\cf13 ""\cf7 , forKey: \cf13 "CNVR_PersistentData"\cf7 )
+\fs24 \cf4 \cb3 \
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f1 \cf0 \cb1 \
+
+\f0\b Objective-C\
+
+\f1\b0 \
+\pard\tx642\pardeftab642\pardirnatural\partightenfactor0
+
+\f3\fs26 \cf7 \cb6     [[\cf9 NSUserDefaults\cf7  \cf9 standardUserDefaults\cf7 ] \cf9 setObject\cf7 :\cf13 @""\cf7  \cf9 forKey\cf7 :\cf13 @"IABTCF_TCString"\cf7 ];\
+    [[\cf9 NSUserDefaults\cf7  \cf9 standardUserDefaults\cf7 ] \cf9 setObject\cf7 :\cf13 @""\cf7  \cf9 forKey\cf7 :\cf13 @"CNVR_PersistentData"\cf7 ];\
+\pard\tx593\pardeftab593\pardirnatural\partightenfactor0
+
+\f1\fs24 \cf0 \cb1 \
+\
+\
+}

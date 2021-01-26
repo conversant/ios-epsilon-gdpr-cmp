@@ -1,0 +1,89 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+
+      window.cmpConfig = %@;
+
+      const forceShowCMP = %@;
+      const messageHandlers = window.webkit.messageHandlers;
+      const queue = [];
+
+      /**
+       * Queing function will be replaced by CMP once the script with the
+       * src lands on the page and the queue will be processed
+       */
+      window.__tcfapi = function() {
+
+        const args = arguments;
+
+        if (!args.length) {
+
+          return queue;
+
+        } else {
+
+          queue.push(args);
+
+        }
+
+      };
+
+      if (forceShowCMP) {
+
+        __tcfapi('summon', null, function() {});
+
+      }
+
+      __tcfapi('addEventListener', null, function(tcData, success) {
+
+        if(success) {
+
+          const eventStatus = tcData.eventStatus;
+
+          if (eventStatus === 'useractioncomplete') {
+
+            /**
+             * The user has tapped on the call-to-action button in the CMP
+             * and the TCData is updated with their preferences.  However,
+             * this TCData is not formatted for the mobile environment;
+             * instead we need the inAppTCData.
+             */
+
+            __tcfapi('getInAppTCData', null, function(inAppTCData) {
+
+              messageHandlers.tcstatus.postMessage(eventStatus);
+              messageHandlers.gdprComplete.postMessage(inAppTCData);
+
+            });
+
+          } else {
+
+            /**
+             * Likely the initial load ("tcloaded") if the UI has decided
+             * not to show. Otherwise it is the "cmpuishown" event
+             * signaling that the UI is now showing.
+             */
+
+            messageHandlers.tcstatus.postMessage(eventStatus);
+
+          }
+
+        } else {
+
+          /**
+           * This case is not handled.
+           */
+
+          messageHandlers.cmpLog.postMessage('Unsuccessful TCData Call')
+
+        }
+
+      });
+
+
+    </script>
+</head>
+<body>
+<script src="%@"></script>
+</body>
+</html>

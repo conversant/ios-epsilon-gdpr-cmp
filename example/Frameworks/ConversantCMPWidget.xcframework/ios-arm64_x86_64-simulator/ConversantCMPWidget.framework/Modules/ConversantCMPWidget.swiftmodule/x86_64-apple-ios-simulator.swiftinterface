@@ -1,0 +1,223 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios12.1-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name ConversantCMPWidget
+import AdSupport
+import Foundation
+import Swift
+import UIKit
+import WebKit
+@objc @_inheritsConvenienceInitializers @objcMembers public class LegalDescription : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var hide: Swift.String?
+  @objc public var show: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @objcMembers public class ConversantCMPConfiguration : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var brandingImg: Swift.String?
+  @objc final public let countryCode: Swift.String
+  @objc public var cssOverride: Swift.String?
+  public var gdprAppliesGlobally: Swift.Bool?
+  @objc public var lang: Swift.String?
+  @objc public var legalName: Swift.String?
+  @objc public var policyUrl: Swift.String?
+  @objc public var vendors: [Swift.Int]?
+  @objc final public let version: Swift.String
+  @objc public var id: Swift.String
+  public var isServiceSpecific: Swift.Bool?
+  @objc public var customUI: ConversantCMPWidget.CustomUI?
+  @objc public var legalBases: ConversantCMPWidget.LegalBases?
+  @objc public var text: ConversantCMPWidget.Text?
+  @objc public init(countryCode: Swift.String, version: Swift.String)
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Review : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var tabs: ConversantCMPWidget.Tabs?
+  @objc public var buttons: ConversantCMPWidget.Buttons?
+  @objc public var footer: ConversantCMPWidget.Footer?
+  @objc public var introBody: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class LegalBases : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var feature: [Swift.Int]?
+  @objc public var purpose: ConversantCMPWidget.Purpose?
+  @objc public var specialFeature: [Swift.Int]?
+  @objc public var specialPurpose: [Swift.Int]?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Companies : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var header: ConversantCMPWidget.Header?
+  @objc public var privacyPolicyLink: Swift.String?
+  @objc public var tabTitle: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Purpose : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var consent: [Swift.Int]?
+  @objc public var legitimateInterest: [Swift.Int]?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_hasMissingDesignatedInitializers public class CMPWebView : WebKit.WKWebView {
+  public init(cmpConfiguration: ConversantCMPWidget.ConversantCMPConfiguration)
+  public func cleanup()
+  @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect, configuration: WebKit.WKWebViewConfiguration)
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class CompanyList : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var hide: Swift.String?
+  @objc public var no: Swift.String?
+  @objc public var show: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Body : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var p1: Swift.String?
+  @objc public var p2: Swift.String?
+  @objc public var cta: Swift.String?
+  @objc public var reviewLink: Swift.String?
+  @objc public var seeMoreLink: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class CustomUI : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var backgroundColor: Swift.String?
+  @objc public var borderRadiusButton: Swift.String?
+  @objc public var linkColor: Swift.String?
+  @objc public var primaryColor: Swift.String?
+  @objc public var textColor: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Text : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var landing: ConversantCMPWidget.Landing?
+  @objc public var review: ConversantCMPWidget.Review?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Header : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var consent: Swift.String?
+  @objc public var feature: Swift.String?
+  @objc public var legInt: Swift.String?
+  @objc public var specialPurpose: Swift.String?
+  @objc public var specialFeature: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Label : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var feature: Swift.String?
+  @objc public var purpose: Swift.String?
+  @objc public var specialFeature: Swift.String?
+  @objc public var specialPurpose: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Tabs : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var companies: ConversantCMPWidget.Companies?
+  @objc public var purposes: ConversantCMPWidget.Purposes?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class SeeMoreLink : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var seeMore: Swift.String?
+  @objc public var seeLess: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @objcMembers public class ConversantCMP : ObjectiveC.NSObject {
+  @objc public var timeoutSeconds: Swift.Double
+  @objc public init(configuration: Foundation.Data)
+  @objc public func checkGDPRIsRequired(containerView: UIKit.UIView, completion: @escaping (Foundation.NSNumber?) -> Swift.Void)
+  @objc public func presentCMPWidget(from presentingViewController: UIKit.UIViewController, onComplete: (() -> Swift.Void)?)
+  @objc public func modifyConsent(from presentingViewController: UIKit.UIViewController, onComplete: (() -> Swift.Void)?)
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Footer : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var allowAll: Swift.String?
+  @objc public var cta: Swift.String?
+  @objc public var denyAll: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Landing : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var body: ConversantCMPWidget.Body?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Buttons : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var allow: Swift.String?
+  @objc public var deny: Swift.String?
+  @objc public var optOut: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum ConversantLogLevel : Swift.Int, Swift.CustomStringConvertible {
+  case fatal
+  case error
+  case warn
+  case info
+  case debug
+  case verbose
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class CmpLog {
+  public static var shared: ConversantCMPWidget.CmpLog
+  public var loggingCallback: ((Swift.String) -> Swift.Void)?
+  public var logLevel: ConversantCMPWidget.ConversantLogLevel
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class Purposes : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var header: ConversantCMPWidget.Header?
+  @objc public var label: ConversantCMPWidget.Label?
+  @objc public var legalDescription: ConversantCMPWidget.LegalDescription?
+  @objc public var companyList: ConversantCMPWidget.CompanyList?
+  @objc public var tabTitle: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+  required public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
